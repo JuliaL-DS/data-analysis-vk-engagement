@@ -1,0 +1,11 @@
+# Секреты и окружение
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Системные файлы (Mac/Windows)
+.DS_Store
+Thumbs.db
