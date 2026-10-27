@@ -1,0 +1,171 @@
+version: 2
+
+models:
+  - name: fact_vk_posts
+    description: >
+      Витрина фактов по постам паблика minaev_live (Сергей Минаев).
+      Содержит очищенные реакции (лайки, комментарии, репосты), флаги 10 рубрик,
+      интервал до предыдущего поста, ER и календарные разрезы (час, день недели).
+      Удалённые посты в витрину не попадают.
+
+      Модель соответствует логике Python-пайплайна main.py: те же колонки,
+      та же нормализация, те же флаги рубрик. Признаки «длина текста» и
+      «формат вложений» намеренно отсутствуют — они непригодны для анализа
+      (см. README).
+
+    columns:
+      # ----- Ключи и даты -----
+      - name: post_id
+        description: Уникальный идентификатор поста VK. Первичный ключ витрины.
+        tests:
+          - unique
+          - not_null
+
+      - name: post_date
+        description: Дата и время публикации поста.
+        tests:
+          - not_null
+
+      # ----- Реакции -----
+      - name: likes
+        description: Количество лайков.
+        tests:
+          - not_null
+
+      - name: comments
+        description: Количество комментариев.
+        tests:
+          - not_null
+
+      - name: reposts
+        description: Количество репостов.
+        tests:
+          - not_null
+
+      - name: views
+        description: Количество просмотров.
+        tests:
+          - not_null
+
+      - name: total_engagement
+        description: Суммарная вовлечённость (likes + comments + reposts).
+        tests:
+          - not_null
+
+      - name: engagement_rate
+        description: ER = total_engagement / views. Защищено от деления на ноль.
+        tests:
+          - not_null
+
+      # ----- Флаги рубрик v1 (из ТЗ) -----
+      - name: rubric_uroki_istorii
+        description: Флаг рубрики «Уроки истории» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_seriynyi_nomer
+        description: Флаг рубрики «Серийный номер» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_vtoraya_mirovaya
+        description: Флаг рубрики «Вторая мировая» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_prostoveshi
+        description: Флаг рубрики «Простовещи» / «Простые вещи» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_doletskaya
+        description: Флаг рубрики «Долецкая» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_lichnosti
+        description: Флаг рубрики «Личности» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      # ----- Флаги рубрик v2 (ручной аудит 719 заголовков) -----
+      - name: rubric_chtivo
+        description: Флаг рубрики «ЧТИВО» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_istorii_kumirov
+        description: Флаг рубрики «Истории кумиров» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_istorii_milliardov
+        description: Флаг рубрики «Истории миллиардов» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: rubric_istoriya_brenda
+        description: Флаг рубрики «История бренда» (1 / 0).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      # ----- Интервал между постами -----
+      # not_null НЕ ставим: у самого первого поста предыдущего нет,
+      # значение NULL — это корректно.
+      - name: days_since_previous_post
+        description: >
+          Интервал в днях от предыдущего поста. У самого первого поста
+          канала — NULL.
+
+      # ----- Календарные разрезы -----
+      - name: hour
+        description: Час публикации (0–23, UTC).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                       12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+      - name: weekday
+        description: День недели (1=Пн .. 7=Вс, ISO 8601).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 7]
+
+      - name: weekday_ru
+        description: День недели текстом на русском (Пн..Вс).
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+
+      # ----- Флаг удаления -----
+      # В витрину удалённые посты не попадают (WHERE is_deleted = FALSE),
+      # поэтому все строки должны иметь is_deleted = 0.
+      - name: is_deleted
+        description: Флаг «пост удалён». В витрине всегда 0 (удалённые отсеяны).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0]

@@ -1,0 +1,140 @@
+{
+  "response": {
+    "count": 13,
+    "items": [
+      {
+        "id": 101,
+        "date": 1715616000,
+        "text": "Новый выпуск подкаста: обсуждаем тренды digital-маркетинга 2024. Ссылка в первом комментарии.",
+        "likes":    { "count": 342 },
+        "comments": { "count": 47 },
+        "reposts":  { "count": 18 },
+        "views":    { "count": 15230 },
+        "attachments": [ { "type": "photo", "photo": { "id": 1 } } ]
+      },
+      {
+        "id": 102,
+        "date": 1715702400,
+        "text": "Коротко о главном: три ошибки в воронке, которые стоят вам денег.",
+        "likes":    { "count": 128 },
+        "comments": { "count": 12 },
+        "reposts":  { "count": 5 },
+        "views":    { "count": 6210 },
+        "attachments": []
+      },
+      {
+        "id": 103,
+        "date": 1715788800,
+        "text": "Опрос для подписчиков: какой формат контента вам ближе?",
+        "likes":    { "count": 91 },
+        "comments": { "count": 34 },
+        "reposts":  { "count": 2 },
+        "views":    { "count": 4120 },
+        "attachments": [ { "type": "poll", "poll": { "id": 55 } } ]
+      },
+      {
+        "id": 104,
+        "date": 1715875200,
+        "text": "",
+        "likes":    { "count": 0 },
+        "comments": { "count": 0 },
+        "reposts":  { "count": 0 },
+        "views":    { "count": 0 },
+        "attachments": []
+      },
+      {
+        "id": 105,
+        "date": 1715961600,
+        "text": "Запись вебинара уже на канале. 45 минут практики по атрибуции.",
+        "likes":    { "count": 205 },
+        "comments": { "count": 21 },
+        "reposts":  { "count": 33 },
+        "views":    { "count": 11890 },
+        "attachments": [ { "type": "video", "video": { "id": 7 } } ]
+      },
+      {
+        "id": 106,
+        "date": 1716048000,
+        "text": "Этот пост был удалён модерацией VK.",
+        "likes":    { "count": 3 },
+        "comments": { "count": 0 },
+        "reposts":  { "count": 0 },
+        "views":    { "count": 120 },
+        "attachments": [],
+        "deleted": true
+      },
+      {
+        "id": 107,
+        "date": 1716134400,
+        "text": "Кейс: как мы подняли CR лендинга на 27% за две недели.",
+        "likes":    null,
+        "comments": { "count": 19 },
+        "reposts":  { "count": 8 },
+        "views":    { "count": 7300 },
+        "attachments": [ { "type": "photo", "photo": { "id": 2 } } ]
+      },
+      {
+        "id": 108,
+        "date": 1716220800,
+        "text": "Разбираем метрики retention без воды.",
+        "likes":    { "count": 156 },
+        "reposts":  { "count": 4 },
+        "views":    { "count": 5410 },
+        "attachments": []
+      },
+      {
+        "id": 109,
+        "date": 1716307200,
+        "text": "Новый формат: короткие заметки по понедельникам.",
+        "likes":    { "count": "42" },
+        "comments": { "count": 7 },
+        "reposts":  { "count": 1 },
+        "views":    { "count": 3020 },
+        "attachments": [ { "type": "photo", "photo": { "id": 3 } } ]
+      },
+      {
+        "id": 110,
+        "date": 1716393600,
+        "text": "",
+        "likes":    { "count": 88 },
+        "comments": { "count": 4 },
+        "reposts":  { "count": 3 },
+        "views":    { "count": 2410 },
+        "attachments": [ { "type": "photo", "photo": { "id": 4 } } ]
+      },
+      {
+        "id": 111,
+        "date": 1716480000,
+        "text": "Большой лонгрид: как выстроить сквозную аналитику в digital-агентстве, если у вас нет data-команды, но есть амбиции, ClickHouse и пара свободных вечеров. Разбираем всё по шагам — от сбора событий до дашборда для клиента. В конце — чек-лист внедрения и типичные грабли, на которые наступают почти все.",
+        "likes":    { "count": 267 },
+        "comments": { "count": 52 },
+        "reposts":  { "count": 41 },
+        "views":    { "count": 14870 },
+        "attachments": [ { "type": "photo", "photo": { "id": 5 } } ]
+      },
+      {
+        "id": 112,
+        "date": null,
+        "text": "Технический пост с отсутствующей датой (граничный случай).",
+        "likes":    { "count": 15 },
+        "comments": { "count": 1 },
+        "reposts":  { "count": 0 },
+        "views":    { "count": 480 },
+        "attachments": []
+      },
+      {
+        "id": 113,
+        "date": 1716566400,
+        "text": "Микс: фото + видео, полный мультимедиа-формат.",
+        "likes":    { "count": 310 },
+        "comments": { "count": 28 },
+        "reposts":  { "count": 22 },
+        "views":    { "count": 13110 },
+        "attachments": [
+          { "type": "photo", "photo": { "id": 6 } },
+          { "type": "video", "video": { "id": 9 } }
+        ]
+      }
+    ]
+  }
+}
